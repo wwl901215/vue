@@ -1,14 +1,16 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div id="FirstPage" marginheight="0px" marginwidth="0px">
     <p>{{message}}</p>
+    <button v-on:click="reverseMessage('输入的逆转消息')">逆转消息</button>
+    <input v-model="message"/>
     <table width="100%" height="300px" style="background-color:#818">
       <tr>
-        <td colspan="2" width="100%" height="40%" style="background-color:red" >head</td>
+        <td colspan="2" width="100%" height="40%" style="background-color:red">head</td>
       </tr>
       <tr>
-          <td width="50%" height="60%" style="background-color:green" >left</td>
-          <td width="50%" height="60%" style="background-color:blue" >right</td>
-        </tr>
+        <td width="50%" height="60%" style="background-color:green">left</td>
+        <td width="50%" height="60%" style="background-color:blue">right</td>
+      </tr>
     </table>
     <br/>
     <form>
@@ -26,7 +28,7 @@
         <option>aaa</option>
         <option>aaa</option>
         <option>aaa</option>
-        </select>
+      </select>
     </form>
     <textarea cols="20" rows="20">
       请填写相关信息
@@ -40,6 +42,11 @@
     data () {
       return {
         message: '用table实现布局'
+      }
+    },
+    methods: {
+      reverseMessage: function (msg) {
+        this.message = (this.message + msg).split('').reverse().join('')
       }
     }
   }
